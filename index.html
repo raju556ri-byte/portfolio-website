@@ -3,17 +3,235 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Raju Kumar Sah</title>
+  <title>Raju Kumar Sah | Aerospace Engineer</title>
+  <meta name="description" content="Portfolio of Raju Kumar Sah, aerospace engineer from Nepal working on rocket propulsion, CFD and precision fabrication.">
   <link rel="icon" type="image/png" href="faviconn.png">
   <style>
-    body { font-family: Arial, sans-serif; max-width: 700px; margin: 60px auto; padding: 0 20px; line-height: 1.6; }
-    h1 { margin-bottom: 0; }
-    p.sub { color: #666; margin-top: 4px; }
+    :root {
+      --ink: #0e1a2b;
+      --paper: #f5f7fa;
+      --text: #1c2736;
+      --muted: #5a6a7e;
+      --line: #d9e0e9;
+      --blue: #1a75bc;
+      --orange: #f28c1b;
+      --link: #14609b;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #0b1420;
+        --text: #dfe6ef;
+        --muted: #9aa9bc;
+        --line: #223247;
+        --link: #6db4ec;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--text);
+      font: 17px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    a { color: var(--link); }
+    a:focus-visible, .btn:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    .hero { background: var(--ink); color: #eef3f9; position: relative; overflow: hidden; }
+    .hero .wrap { padding-top: 88px; padding-bottom: 96px; position: relative; z-index: 1; }
+    .hero h1 {
+      font: 700 clamp(2.2rem, 6vw, 4rem)/1.08 Georgia, "Times New Roman", serif;
+      margin: 0 0 24px;
+      max-width: 15em;
+    }
+    .hero p { margin: 0 0 32px; max-width: 34em; color: #b9c7d8; font-size: 1.15rem; }
+    .btn {
+      display: inline-block; padding: 12px 22px; border-radius: 6px;
+      text-decoration: none; font-weight: 600; margin: 0 12px 12px 0;
+    }
+    .btn.primary { background: var(--orange); color: #1b1200; }
+    .btn.ghost { border: 1.5px solid #5d7593; color: #eef3f9; }
+    .arc { position: absolute; right: -60px; top: 20px; width: 560px; max-width: 90vw; opacity: .9; }
+
+    /* Sections */
+    .sec {
+      display: grid; grid-template-columns: 200px 1fr; gap: 32px;
+      padding: 56px 0; border-top: 1px solid var(--line);
+    }
+    main .sec:first-child { border-top: 0; }
+    h2 { font: 700 1.6rem/1.2 Georgia, "Times New Roman", serif; margin: 0; }
+    .entry {
+      display: grid; grid-template-columns: 150px 1fr; gap: 24px;
+      padding: 0 0 28px; margin: 0 0 28px; border-bottom: 1px solid var(--line);
+    }
+    .entry:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
+    .when { color: var(--muted); font-size: .95rem; }
+    h3 { margin: 0 0 6px; font-size: 1.1rem; line-height: 1.35; }
+    .org { color: var(--muted); margin: 0 0 8px; font-size: .95rem; }
+    .entry p { margin: 0 0 8px; max-width: 60ch; }
+    .entry p:last-child { margin-bottom: 0; }
+    .about p { margin: 0 0 16px; max-width: 60ch; }
+    dl { margin: 0; }
+    dt { font-weight: 700; margin-top: 16px; }
+    dt:first-child { margin-top: 0; }
+    dd { margin: 2px 0 0; color: var(--muted); }
+    footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--muted); font-size: .95rem; }
+
+    @media (max-width: 720px) {
+      .sec { grid-template-columns: 1fr; gap: 20px; padding: 40px 0; }
+      .entry { grid-template-columns: 1fr; gap: 4px; }
+      .hero .wrap { padding-top: 64px; padding-bottom: 72px; }
+      .arc { opacity: .35; right: -140px; }
+    }
   </style>
 </head>
 <body>
-  <h1>Raju Kumar Sah</h1>
-  <p class="sub">Aerospace Engineer | Nepal</p>
-  <p>Welcome to my website. More coming soon.</p>
+  <header class="hero">
+    <svg class="arc" viewBox="0 0 560 360" fill="none" aria-hidden="true">
+      <circle cx="330" cy="180" r="150" stroke="#1a75bc" stroke-width="14"/>
+      <path d="M20 270 C 170 300, 380 250, 500 90" stroke="#f28c1b" stroke-width="14" stroke-linecap="round"/>
+    </svg>
+    <div class="wrap">
+      <h1>I design, machine and static-fire rocket engines.</h1>
+      <p>Raju Kumar Sah, aerospace engineer from Nepal. I work on rocket propulsion, CFD and the hands-on fabrication that turns a simulation into hardware.</p>
+      <a class="btn primary" href="#projects">See my projects</a>
+      <a class="btn ghost" href="#contact">Get in touch</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="sec about" id="about">
+      <h2>About</h2>
+      <div>
+        <p>I studied Aerospace Engineering at IOE Pulchowk Campus, Tribhuvan University. As propulsion, structure and fabrication head of the SRB Club, I took engines from thermochemical analysis and CFD to lathe work, composite layup and static fire tests.</p>
+        <p>My final year project was LUME-X1, the first liquid rocket engine built in Nepal. I also spent three months as a research intern in the Aircraft Propulsion Laboratory at IIT Bombay, working on propellant chemistry and combustion.</p>
+      </div>
+    </section>
+
+    <section class="sec" id="projects">
+      <h2>Projects and achievements</h2>
+      <div>
+        <article class="entry">
+          <div class="when">2026</div>
+          <div>
+            <h3>LUME-X1, the first liquid rocket engine of Nepal</h3>
+            <p>Designed, analyzed, simulated and built the engine as my final year project. It passed its static fire test on the first attempt at 92% efficiency.</p>
+          </div>
+        </article>
+        <article class="entry">
+          <div class="when">2025</div>
+          <div>
+            <h3>National rocketry record</h3>
+            <p>As propulsion, structure and fabrication head, I helped set a new national record of 2.62 km altitude with a solid-fuel rocket.</p>
+          </div>
+        </article>
+        <article class="entry">
+          <div class="when">Analysis</div>
+          <div>
+            <h3>Mach 4.3 hypersonic intake</h3>
+            <p>Designed a single-ramp intake with oblique shock theory for shock-on-lip conditions. I automated throat sizing and the &theta;-&beta;-M solutions in Python and reached 0.8466 total pressure recovery.</p>
+            <p>A 2D RANS simulation in Fluent (k-&omega; SST) matched the analytical mass flow of 25.85 kg/s within 1.03%.</p>
+          </div>
+        </article>
+        <article class="entry">
+          <div class="when">2024</div>
+          <div>
+            <h3>Research Support Fund</h3>
+            <p>Awarded research funding after winning the AIChE K-12 STEM Outreach Competition and the PRAKRITI '24 Model Exhibition.</p>
+          </div>
+        </article>
+        <article class="entry">
+          <div class="when">2023</div>
+          <div>
+            <h3>Mabuchi Motor Award, ABU Robocon 2023</h3>
+            <p>As design and fabrication head, I built a robot that won the award for the most compact design at the competition in Phnom Penh, Cambodia.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="sec" id="experience">
+      <h2>Experience</h2>
+      <div>
+        <article class="entry">
+          <div class="when">Sep to Nov 2025</div>
+          <div>
+            <h3>Research intern</h3>
+            <p class="org">Aircraft Propulsion Laboratory, IIT Bombay, Mumbai</p>
+            <p>Synthesized organic and inorganic gel propellants and measured droplet combustion with high-speed imaging. Ran laser ignition studies of AP-HTPB with nano-aluminum, Crawford bomb tests of electrically controlled and slurry propellants, and static fires of HTPB/N2O hybrid motors.</p>
+            <p>I also joined the IIT Bombay Rocket Club night shift preparing for the Spaceport America Cup, where I developed a vibrating drip-casting method that removed trapped bubbles from sugar propellant grains.</p>
+          </div>
+        </article>
+        <article class="entry">
+          <div class="when">Jun 2024 to May 2026</div>
+          <div>
+            <h3>Propulsion, structure and fabrication head</h3>
+            <p class="org">SRB Club, Kathmandu</p>
+            <p>Ran thermochemical and CFD analysis with NASA CEA and ANSYS Fluent, machined chambers, nozzles and injectors, and laid up composite airframes for Project Bajra. Delivered propulsion and structures for Project TRISHUL, Project Bajra and LUME-X1.</p>
+          </div>
+        </article>
+        <article class="entry">
+          <div class="when">Aug 2022 to May 2026</div>
+          <div>
+            <h3>Design and fabrication head</h3>
+            <p class="org">Robotics Club, Kathmandu</p>
+            <p>Took competition robots from CAD to finished hardware, machining plates, mounts, shafts and bearing housings. Solved a late weight limit with weight-relief pocketing and 3D-printed parts.</p>
+          </div>
+        </article>
+        <article class="entry">
+          <div class="when">Jan to May 2024</div>
+          <div>
+            <h3>Laboratory research assistant</h3>
+            <p class="org">Chemistry Lab, Kathmandu</p>
+            <p>Screened flame-retardant chemistries for cotton and found borax the most effective, with treated samples fully resisting direct flame.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="sec" id="education">
+      <h2>Education</h2>
+      <div>
+        <article class="entry">
+          <div class="when">2022 to 2026</div>
+          <div>
+            <h3>B.E. in Aerospace Engineering</h3>
+            <p class="org">Institute of Engineering, Pulchowk Campus, Tribhuvan University, Lalitpur</p>
+            <p>Highest project portfolio in the class. Coursework included compressible aerodynamics, advanced propulsion, CFD, heat transfer, control systems, aircraft structures, flight dynamics and aircraft preliminary design.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="sec" id="skills">
+      <h2>Skills</h2>
+      <dl>
+        <dt>Programming</dt>
+        <dd>Python (Pandas, Matplotlib, SciPy, NumPy), MATLAB</dd>
+        <dt>Simulation and CFD</dt>
+        <dd>ANSYS Fluent, OpenFOAM, XFLR5, NASA CEARUN, OpenRocket, OpenMotor, X-Plane, PlaneMaker, ParaView</dd>
+        <dt>CAD and electronics</dt>
+        <dd>CATIA, Fusion 360, Proteus (basic)</dd>
+        <dt>Machining and fabrication</dt>
+        <dd>Lathe, milling, welding, 3D printing, CNC CO2 laser cutting, composite layup</dd>
+        <dt>Interests</dt>
+        <dd>Rocket propulsion, nozzles, solid and liquid propellant systems, thermochemical analysis, hypersonics</dd>
+      </dl>
+    </section>
+
+    <section class="sec" id="contact">
+      <h2>Contact</h2>
+      <div class="about">
+        <p>I am open to work in rocket propulsion, CFD and fabrication. Email is the best way to reach me.</p>
+        <p><a href="mailto:078bas034.raju@pcampus.edu.np">078bas034.raju@pcampus.edu.np</a><br>Pulchowk, Lalitpur, Nepal</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">&copy; 2026 Raju Kumar Sah</div>
+  </footer>
 </body>
 </html>
