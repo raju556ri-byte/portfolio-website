@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Propellant Combustion Research at IIT Bombay | Raju Kumar Sah</title>
+<meta name="description" content="Research internship at IIT Bombay: laser ignition, slurry and gel propellant combustion, electrically controlled propellant and hybrid motor testing.">
+<link rel="icon" type="image/png" href="/faviconn.png">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <canvas id="motion-canvas"></canvas>
+
+  <nav>
+    <div class="wrap">
+      <a href="/" class="logo">RAJU KUMAR SAH<span>.</span></a>
+      <div class="nav-right">
+        <ul class="navlinks">
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/#experience">Experience</a></li>
+          <li><a href="/#writing">Writing</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+        <button class="theme-btn" id="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap page case">
+    <a class="crumb" href="/#projects">← All projects</a>
+    <div class="badge">Research internship · 2025</div>
+    <h1>Propellant Combustion Research at IIT Bombay</h1>
+    <p class="lede">Experimental combustion studies of solid, slurry, gel and hybrid propellants at the Propellant Research Laboratory, Department of Aerospace Engineering, IIT Bombay, under Prof. Nagendra Kumar.</p>
+    <div class="btn-group">
+      <a class="btn primary" href="/assets/IIT-Bombay-internship-report.pdf" target="_blank" rel="noopener">Read the internship report (PDF)</a>
+      <a class="btn outline" href="#slurry">Jump to burn-rate results</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>8 ms</b><span>piezo ignition delay at 100% laser power</span></div>
+      <div class="stat"><b>1.42 → 1.75</b><span>burn-rate coefficient with iron oxide, mm/(s·bar<sup>n</sup>)</span></div>
+      <div class="stat"><b>0.41 – 0.49</b><span>pressure exponent across the slurry mixes</span></div>
+      <div class="stat"><b>0.90</b><span>best D<sup>2</sup>-law fit for an aluminized gel (25% Al)</span></div>
+    </div>
+
+    <section>
+      <h2>My role</h2>
+      <div class="prose">
+        <p>I worked with the laboratory’s research scholars on several studies. My work covered preparing propellant samples, running and recording laser-ignition and Crawford burner tests, formulating and burning gel propellants, and processing the data. I also supported and observed the assembly and testing of a hybrid motor.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Laser ignition of AP/HTPB with nano-aluminum</h2>
+      <div class="prose">
+        <p>Laser ignition lights a propellant without contact, but many propellants absorb laser light poorly. I tested ammonium perchlorate (AP) and HTPB composite propellant containing nano-aluminum (nAl) in a chamber pressurized with nitrogen. A piezoelectric sensor, a photodiode and a pressure transducer detected ignition, while laser power, laser-on time and the ignition sequence were varied.</p>
+        <p>Ignition was inconsistent at 10–20% laser power and became consistent from 40%. At 60–100% it was faster and more repeatable.</p>
+      </div>
+      <table class="data">
+        <thead><tr><th>Laser power</th><th>Piezo ignition delay</th></tr></thead>
+        <tbody>
+          <tr><td>10%</td><td>none recorded</td></tr>
+          <tr><td>20%</td><td>46 – 76 ms</td></tr>
+          <tr><td>40%</td><td>32 – 62 ms</td></tr>
+          <tr><td>60%</td><td>17.5 – 20 ms</td></tr>
+          <tr><td>100%</td><td>8 ms (one test recorded no value)</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Source: internship report, Table 2.1.</p>
+      <div class="figrow">
+        <figure>
+          <img src="/assets/iit-bombay/laser-setup.jpg" alt="Laser ignition chamber with the pressure transducer, piezo sensor, propellant holder and depressurizing valve labelled" loading="lazy">
+          <figcaption>The laser ignition chamber and its sensors. Source: report, Fig. 2.1.</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/iit-bombay/laser-signal.jpg" alt="Laser driver voltage and photodiode signal against time during an ignition test" loading="lazy">
+          <figcaption>Laser driver voltage (A1) and photodiode output (A0) at 5 bar with nAl. Source: report, Fig. 2.3.</figcaption>
+        </figure>
+      </div>
+      <figure>
+        <img src="/assets/iit-bombay/laser-frames.jpg" alt="Four high-speed frames: ignition initiation, ignition with burning nano-aluminum particles, ignition with pyrolysis and ignition shutoff" loading="lazy">
+        <figcaption>High-speed frames: ignition initiation, burning nAl particles, pyrolysis and shutoff. Source: report, Fig. 2.4.</figcaption>
+      </figure>
+    </section>
+
+    <section id="slurry">
+      <h2>Crawford burner tests: slurry and electrically controlled propellants</h2>
+      <div class="prose">
+        <p>I prepared an HTPB-based slurry propellant with no curing agent. It was about 80% solids (mostly AP), 17% HTPB binder and 3% DOA plasticizer, mixed by hand and then in a sigma mixer for about 45 minutes. Strands were cast, coated on the sides with silica grease so they burn from one face, and burned in a Crawford strand burner at 20–70 bar. A log–log regression of the burn rate against pressure gave the coefficient <em>a</em> and pressure exponent <em>n</em> in r = aP<sup>n</sup>.</p>
+        <p>Iron oxide raised the burn-rate coefficient from 1.42 to 1.75 mm/(s·bar<sup>n</sup>). The exponent changed little, from 0.41 to 0.49, which is in the range expected for AP/HTPB propellants.</p>
+      </div>
+      <table class="data">
+        <thead><tr><th>Slurry mix (20–70 bar)</th><th><em>a</em></th><th><em>n</em></th><th>R<sup>2</sup></th></tr></thead>
+        <tbody>
+          <tr><td>No additive</td><td>1.4159</td><td>0.4433</td><td>0.9784</td></tr>
+          <tr><td>Iron oxide</td><td>1.7524</td><td>0.4098</td><td>0.9099</td></tr>
+          <tr><td>Activated charcoal</td><td>1.5659</td><td>0.4861</td><td>0.9397</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Source: report, Tables 4.1 to 4.3. <em>a</em> is in mm/(s·bar<sup>n</sup>).</p>
+      <div class="figrow">
+        <figure>
+          <img src="/assets/iit-bombay/crawford-setup.jpg" alt="The Crawford strand burner with the strand holder, thermocouple, piezo, light diode and pressure transducer labelled" loading="lazy">
+          <figcaption>The Crawford strand burner. Source: report, Fig. 4.2.</figcaption>
+        </figure>
+        <div>
+          <figure>
+            <img src="/assets/iit-bombay/burnrate-baseline.jpg" alt="Burn rate against pressure and its log-log fit for slurry propellant with no additives" loading="lazy">
+            <figcaption>Slurry with no additives. Source: report, Fig. 4.3.</figcaption>
+          </figure>
+          <figure>
+            <img src="/assets/iit-bombay/burnrate-iron-oxide.jpg" alt="Burn rate against pressure and its log-log fit for slurry propellant with iron oxide" loading="lazy">
+            <figcaption>Slurry with iron oxide. Source: report, Fig. 4.4.</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="prose" style="margin-top:28px">
+        <p>I also took part in Crawford burner tests of a lithium-perchlorate electrically controlled solid propellant (ECSP). Strands were held between a cathode and an anode, so they could be ignited and burned electrically, and the tests varied voltage, pressure and temperature. The report describes this setup and method but gives no numerical results.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Gel propellant droplet combustion</h2>
+      <div class="prose">
+        <p>I formulated organic gels (aviation turbine fuel thickened with Thixotrol ST and xylene) and inorganic gels (fuel thickened with silica, with aluminum added in some mixes). Droplets were hung on a glass rod and burned under a high-speed camera, and their diameter history was analyzed with the D<sup>2</sup>-law.</p>
+        <ul>
+          <li><strong>Silica:</strong> raising it from 5% to 7.5% gave a stronger, more viscous gel. Lower silica gave a more fluid gel that reacted faster.</li>
+          <li><strong>Aluminum, inorganic gels (10% silica):</strong> burning at 10% and 15% Al was unsteady (R<sup>2</sup> of 0.72 and 0.75). At 25% Al the burning rate rose and the fit was best (R<sup>2</sup> = 0.8998). At 30% Al the burn time stayed short, with R<sup>2</sup> = 0.83.</li>
+          <li><strong>Organic gels:</strong> without aluminum they burned steadily, with R<sup>2</sup> above 0.98. More gellant and solvent raised the burning rate slightly, and adding 15% Al to the 7.5% gel raised it further.</li>
+        </ul>
+      </div>
+      <div class="figrow">
+        <figure>
+          <img src="/assets/iit-bombay/gel-droplet.jpg" alt="A burning gel droplet with its flame envelope, and the same droplet after it has shrunk" loading="lazy">
+          <figcaption>A gel droplet with its flame envelope, and near the end of the burn. Source: report, Fig. 5.2.</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/iit-bombay/gel-aluminum.jpg" alt="D squared law fits for gel droplets at 10, 15, 25 and 30 percent aluminum" loading="lazy">
+          <figcaption>D<sup>2</sup>-law fits at 10%, 15%, 25% and 30% Al. Source: report, Fig. 5.4.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>Hybrid motor testing</h2>
+      <div class="prose">
+        <p>I supported and observed the assembly and testing of an HTPB/N<sub>2</sub>O hybrid motor on a static test stand with a load cell, pressure transducers and a data acquisition system. Two injectors were compared, a showerhead and a swirl injector. A pyrotechnic igniter and a sequential timer controlled the ignition, valve opening and shutdown. I also reviewed equilibrium results for flame temperature and characteristic velocity across a range of oxidizer-to-fuel ratios. The report records the setup and method but gives no thrust results.</p>
+      </div>
+      <figure>
+        <img src="/assets/iit-bombay/hybrid-test.jpg" alt="The HTPB and nitrous oxide hybrid engine on its test stand during a firing" loading="lazy">
+        <figcaption>The HTPB/N<sub>2</sub>O hybrid engine test. Source: report, Fig. 6.3.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>Sieving and X-ray inspection</h2>
+      <div class="prose">
+        <p>I sieved ammonium perchlorate into coarse, medium and fine fractions with a tap-sieve shaker, since particle size affects burning rate and packing density. I also looked at an X-ray radiograph of a sorbitol/KNO<sub>3</sub> (35/65) grain. It showed a mostly uniform structure with slight density variation in the middle and voids near both ends. Voids like these can cause hot spots and pressure spikes in a motor.</p>
+      </div>
+      <figure style="max-width:320px">
+        <img src="/assets/iit-bombay/xray-grain.jpg" alt="X-ray image of a cylindrical propellant grain with darker regions at both ends" loading="lazy">
+        <figcaption>X-ray image of the grain. Source: report, Fig. 8.2.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>What these results are</h2>
+      <div class="prose">
+        <p>These were exploratory laboratory studies with small numbers of tests, and the report gives trends and fitted constants rather than final performance claims. Some fits are moderate: the iron oxide slurry has an R<sup>2</sup> of 0.91, and the aluminized gels range from 0.72 to 0.90. The work gave me hands-on practice in propellant preparation, instrumentation and data analysis.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">&copy; 2026 Raju Kumar Sah. All rights reserved.</div>
+  </footer>
+
+  <script src="/js/site.js"></script>
+</body>
+</html>
