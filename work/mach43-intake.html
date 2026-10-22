@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mach 4.3 Single-Ramp Supersonic Intake | Raju Kumar Sah</title>
+<meta name="description" content="Design of a Mach 4.3 single-ramp external compression intake with oblique shock theory in Python, validated with 2D RANS CFD in ANSYS Fluent. Includes an interactive intake calculator.">
+<link rel="icon" type="image/png" href="/faviconn.png">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  .calc{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:28px;max-width:760px}
+  .calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin-bottom:20px}
+  .calc label{display:block;color:var(--muted);font-size:.85rem;margin-bottom:6px}
+  .calc input{width:100%;padding:10px 12px;border-radius:6px;border:1px solid var(--border);background:var(--bg);color:var(--text);font:inherit}
+  .calc input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  #calc-msg{color:var(--accent);margin:0 0 12px;min-height:1.4em}
+  .calc .data{margin:0;max-width:none}
+</style>
+</head>
+<body>
+  <canvas id="motion-canvas"></canvas>
+
+  <nav>
+    <div class="wrap">
+      <a href="/" class="logo">RAJU KUMAR SAH<span>.</span></a>
+      <div class="nav-right">
+        <ul class="navlinks">
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/#experience">Experience</a></li>
+          <li><a href="/#writing">Writing</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+        <button class="theme-btn" id="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap page case">
+    <a class="crumb" href="/#projects">← All projects</a>
+    <div class="badge">Design project · April 2026</div>
+    <h1>Mach 4.3 Single-Ramp Supersonic Intake</h1>
+    <p class="lede">A shock-on-lip external compression intake designed with oblique shock theory in Python, then checked with 2D RANS simulations in ANSYS Fluent. It is the kind of inlet used in ramjets and scramjets.</p>
+    <div class="btn-group">
+      <a class="btn primary" href="/assets/Mach43-intake-design-report.pdf" target="_blank" rel="noopener">Read the design report (PDF)</a>
+      <a class="btn outline" href="#calculator">Try the calculator</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>0.8874</b><span>analytical total pressure recovery</span></div>
+      <div class="stat"><b>0.8466</b><span>total pressure recovery from CFD</span></div>
+      <div class="stat"><b>+1.03%</b><span>CFD mass flow against the 25 kg/s design value</span></div>
+      <div class="stat"><b>22.1°</b><span>oblique shock angle for the 11° ramp</span></div>
+    </div>
+
+    <section>
+      <h2>Design method</h2>
+      <div class="prose">
+        <p>The intake slows a Mach 4.3 freestream with an 11° compression ramp. The ramp shock lands exactly on the cowl lip (the shock-on-lip condition, which maximizes captured air), and a normal shock near the throat takes the flow to subsonic speed. I solved the θ–β–M relation numerically in Python to get the shock angle, then used the oblique and normal shock relations for the post-shock Mach number, static ratios and total pressure recovery. The capture height comes from continuity for 25 kg/s, and the throat height comes from isentropic area–Mach relations.</p>
+      </div>
+      <table class="data">
+        <thead><tr><th>Design input</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>Freestream Mach number</td><td>4.3</td></tr>
+          <tr><td>Ramp angle</td><td>11°</td></tr>
+          <tr><td>Mass flow rate</td><td>25 kg/s</td></tr>
+          <tr><td>Static temperature and pressure</td><td>230 K, 1000 Pa (about 25 km altitude)</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Source: design report, Table 1.</p>
+      <div class="prose" style="margin-top:20px">
+        <p>This gave a capture area of 1.26 m², a throat area of 0.57 m² and a ramp of 3.54 m horizontal length. The pressure ratio across the shock system is 2.90, and the total pressure loss is 11.26%.</p>
+      </div>
+      <figure>
+        <img src="/assets/mach43-intake/geometry.jpg" alt="Intake geometry drawn in Python showing the compression ramp, oblique shock, cowl, throat line and walls" loading="lazy">
+        <figcaption>Intake geometry generated in Python. Source: report, Fig. 1.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>CFD validation</h2>
+      <div class="prose">
+        <p>I built a 2D model of the intake with a structured mesh, refined along the ramp, at the cowl lip and in the shock interaction zones, with inflation layers on the walls. The compressible RANS equations were solved in ANSYS Fluent with a density-based solver and the k–ω SST turbulence model, with air as a calorically perfect gas. Walls were no-slip and adiabatic. The solution was treated as converged when all residuals fell below 10<sup>-6</sup> and the inlet and throat mass flows agreed within 0.5%.</p>
+      </div>
+      <table class="data">
+        <thead><tr><th>Result</th><th>Analytical</th><th>CFD</th></tr></thead>
+        <tbody>
+          <tr><td>Mass flow rate (kg/s)</td><td>25</td><td>25.8525</td></tr>
+          <tr><td>Total pressure recovery</td><td>0.8874</td><td>0.8466</td></tr>
+          <tr><td>Total pressure loss</td><td>11.26%</td><td>15.34%</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Source: design report, Table 5. CFD total pressure recovery is the area-weighted throat total pressure (213,214.68 Pa) over the freestream value (251,834.35 Pa).</p>
+      <div class="prose" style="margin-top:20px">
+        <p>The CFD mass flow is within 1.03% of the design value, so the capture area and ramp geometry ingest the intended airflow. Total pressure recovery is about 4.6% lower than the analytical value. The report attributes this to viscous dissipation and boundary layer growth, entropy generation across the lambda shock system, and local flow separation, none of which the inviscid theory includes.</p>
+      </div>
+      <figure>
+        <img src="/assets/mach43-intake/mesh.jpg" alt="Structured computational mesh around the intake" loading="lazy">
+        <figcaption>The structured mesh. Source: report, Fig. 2.</figcaption>
+      </figure>
+      <div class="figrow">
+        <figure>
+          <img src="/assets/mach43-intake/pressure.jpg" alt="Static pressure contour showing the ramp shock, cowl shock and internal shock train" loading="lazy">
+          <figcaption>Static pressure contour. Source: report, Fig. 3.</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/mach43-intake/mach.jpg" alt="Mach number contour of the intake flow field" loading="lazy">
+          <figcaption>Mach number contour. Source: report, Fig. 4.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="calculator">
+      <h2>Intake calculator</h2>
+      <div class="prose">
+        <p>This runs the same method as the report, in your browser. At the default inputs it reproduces the report’s values (shock angle 22.14°, total pressure recovery 0.8874, capture area 1.262 m², throat area 0.574 m²). Change the Mach number or ramp angle to see how the shock angle and pressure recovery respond.</p>
+      </div>
+      <div class="calc">
+        <div class="calc-grid">
+          <div><label for="in-m">Freestream Mach number</label><input id="in-m" type="number" step="0.1" value="4.3"></div>
+          <div><label for="in-th">Ramp angle (°)</label><input id="in-th" type="number" step="0.5" value="11"></div>
+          <div><label for="in-md">Mass flow (kg/s)</label><input id="in-md" type="number" step="1" value="25"></div>
+          <div><label for="in-t">Static temperature (K)</label><input id="in-t" type="number" step="1" value="230"></div>
+          <div><label for="in-p">Static pressure (Pa)</label><input id="in-p" type="number" step="10" value="1000"></div>
+        </div>
+        <p id="calc-msg" role="status"></p>
+        <table class="data">
+          <tbody>
+            <tr><td>Oblique shock angle</td><td id="o-beta">–</td></tr>
+            <tr><td>Mach number after the ramp shock</td><td id="o-m2">–</td></tr>
+            <tr><td>Static pressure ratio</td><td id="o-pr">–</td></tr>
+            <tr><td>Total pressure recovery</td><td id="o-tpr">–</td></tr>
+            <tr><td>Capture height A<sub>1</sub> (per unit span)</td><td id="o-a1">–</td></tr>
+            <tr><td>Throat height A<sub>2</sub> (per unit span)</td><td id="o-a2">–</td></tr>
+            <tr><td>Ramp horizontal length</td><td id="o-l">–</td></tr>
+            <tr><td>Cowl lip position</td><td id="o-lc">–</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note" style="margin-top:14px">Two-dimensional, calorically perfect air (γ = 1.4, R = 287 J/(kg·K)), weak-shock solution. The throat height follows the report’s method. Total pressure recovery here is the inviscid value.</p>
+    </section>
+
+    <section>
+      <h2>Limits</h2>
+      <div class="prose">
+        <p>The design is two-dimensional and for a single design point, with one ramp. Real-gas effects are ignored, which is reasonable at this Mach number. The report suggests multi-ramp inlets, three-dimensional effects and optimization for pressure recovery as next steps. Total pressure recovery was only compared at the design point, so off-design behaviour is not covered.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">&copy; 2026 Raju Kumar Sah. All rights reserved.</div>
+  </footer>
+
+  <script src="/js/site.js"></script>
+  <script>
+    (function () {
+      var g = 1.4, R = 287;
+      var ids = ['in-m','in-th','in-md','in-t','in-p'];
+      function $(id){ return document.getElementById(id); }
+      function solve(M, thDeg, mdot, T, P) {
+        var th = thDeg * Math.PI / 180;
+        var f = function (b) {
+          return 2 / Math.tan(b) * (M*M*Math.pow(Math.sin(b),2) - 1) / (M*M*(g + Math.cos(2*b)) + 2) - Math.tan(th);
+        };
+        var lo = Math.asin(1/M) + 1e-6, flo = f(lo), hi = null, b;
+        for (b = lo + 0.0005; b < Math.PI/2; b += 0.0005) {
+          var fb = f(b);
+          if (flo < 0 && fb >= 0) { hi = b; break; }
+          lo = b; flo = fb;
+        }
+        if (hi === null) return null;
+        for (var i = 0; i < 80; i++) { var mid = (lo + hi) / 2; if (f(mid) < 0) lo = mid; else hi = mid; }
+        b = (lo + hi) / 2;
+        var Mn1 = M * Math.sin(b);
+        var Mn2 = Math.sqrt((1 + (g-1)/2*Mn1*Mn1) / (g*Mn1*Mn1 - (g-1)/2));
+        var M2 = Mn2 / Math.sin(b - th);
+        var pr = 1 + 2*g/(g+1) * (Mn1*Mn1 - 1);
+        var tpr = Math.pow((g+1)*Mn1*Mn1 / ((g-1)*Mn1*Mn1 + 2), g/(g-1)) * Math.pow((g+1) / (2*g*Mn1*Mn1 - (g-1)), 1/(g-1));
+        var A1 = mdot / ((P/(R*T)) * M * Math.sqrt(g*R*T));
+        var AR = function (m) { return (1/m) * Math.pow(2/(g+1) * (1 + (g-1)/2*m*m), (g+1)/(2*(g-1))); };
+        var A2 = AR(M2) / AR(M) * A1;
+        return { beta: b*180/Math.PI, M2: M2, pr: pr, tpr: tpr, A1: A1, A2: A2, L: (A1-A2)/Math.tan(th), Lc: A1/Math.tan(b) };
+      }
+      function set(id, t){ $(id).textContent = t; }
+      function run() {
+        var v = ids.map(function (id) { return parseFloat($(id).value); });
+        var msg = $('calc-msg'), keys = ['o-beta','o-m2','o-pr','o-tpr','o-a1','o-a2','o-l','o-lc'];
+        keys.forEach(function (k) { set(k, '–'); });
+        if (v.some(isNaN) || v[0] <= 1.05 || v[1] <= 0 || v[1] >= 45 || v[2] <= 0 || v[3] <= 0 || v[4] <= 0) {
+          msg.textContent = 'Enter a Mach number above 1.05 and a ramp angle between 0 and 45°, with positive flow, temperature and pressure.';
+          return;
+        }
+        var r = solve(v[0], v[1], v[2], v[3], v[4]);
+        if (!r) { msg.textContent = 'No attached oblique shock exists for this Mach number and angle: the shock detaches. Try a smaller angle or a higher Mach number.'; return; }
+        if (r.M2 <= 1) { msg.textContent = 'The flow after the ramp shock is subsonic, so the throat sizing does not apply. Try a smaller angle.'; set('o-beta', r.beta.toFixed(2) + '°'); set('o-m2', r.M2.toFixed(3)); set('o-pr', r.pr.toFixed(4)); set('o-tpr', r.tpr.toFixed(4)); return; }
+        msg.textContent = '';
+        set('o-beta', r.beta.toFixed(2) + '°'); set('o-m2', r.M2.toFixed(4)); set('o-pr', r.pr.toFixed(4)); set('o-tpr', r.tpr.toFixed(4));
+        set('o-a1', r.A1.toFixed(4) + ' m'); set('o-a2', r.A2.toFixed(4) + ' m');
+        set('o-l', r.L.toFixed(3) + ' m'); set('o-lc', r.Lc.toFixed(3) + ' m');
+      }
+      ids.forEach(function (id) { $(id).addEventListener('input', run); });
+      run();
+    })();
+  </script>
+</body>
+</html>
