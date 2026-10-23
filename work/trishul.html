@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project Trishul: Solid-Fuel Rocket | Raju Kumar Sah</title>
+<meta name="description" content="Project Trishul: a two-metre solid-fuel rocket designed, built and flown by Team SRB at Pulchowk Campus, Nepal, reaching about 2.6 km in January 2025.">
+<link rel="icon" type="image/png" href="/faviconn.png">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <canvas id="motion-canvas"></canvas>
+
+  <nav>
+    <div class="wrap">
+      <a href="/" class="logo">RAJU KUMAR SAH<span>.</span></a>
+      <div class="nav-right">
+        <ul class="navlinks">
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/#experience">Experience</a></li>
+          <li><a href="/#writing">Writing</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+        <button class="theme-btn" id="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap page case">
+    <a class="crumb" href="/#projects">← All projects</a>
+    <div class="badge">Rocketry project · flown January 2025</div>
+    <h1>Project Trishul: A Solid-Fuel Rocket Flown to 2.6 km</h1>
+    <p class="lede">A two-metre solid-fuel rocket designed, built and flown by Team SRB at Pulchowk Campus, with onboard telemetry, a dual-parachute recovery system and a custom launch controller.</p>
+    <div class="btn-group">
+      <a class="btn primary" href="/assets/Trishul-project-report.pdf" target="_blank" rel="noopener">Read the project report (PDF)</a>
+      <a class="btn outline" href="#flight">Jump to flight results</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>2,612 m</b><span>apogee on the January 2025 flight (target 3,000 m)</span></div>
+      <div class="stat"><b>3,775 N·s</b><span>total impulse in the second motor test</span></div>
+      <div class="stat"><b>1,555 N</b><span>peak thrust in the second motor test</span></div>
+      <div class="stat"><b>~2 m</b><span>rocket length</span></div>
+    </div>
+
+    <section>
+      <h2>My role</h2>
+      <div class="prose">
+        <p>I led propulsion, structure and fabrication for Team SRB’s Trishul rocket. The team was organized into structures, propulsion, aerodynamics and avionics units, and the project ran from OpenRocket simulation through motor testing and fabrication to flight.</p>
+      </div>
+      <figure style="max-width:340px">
+        <img src="/assets/trishul/assembled-rocket.jpg" alt="The fully assembled Trishul rocket standing on its launch stand" loading="lazy">
+        <figcaption>The assembled rocket. Source: report, Fig. 3.1.1.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>Design and simulation</h2>
+      <div class="prose">
+        <p>The goal was a 3,000 m apogee. Team SRB modelled the rocket in OpenRocket, about 2 m long, with a candidate solid motor. The first design predicted an apogee of 3,086 m. After the motor was tested on the ground and every part was fabricated and weighed, the model was updated with the real masses and the tested motor, and the predicted apogee fell to 2,577 m. The real rocket and motor were heavier and gave less impulse than the first design.</p>
+      </div>
+      <div class="figrow">
+        <figure>
+          <img src="/assets/trishul/openrocket-design.jpg" alt="OpenRocket model of the initial design predicting a 3086 metre apogee" loading="lazy">
+          <figcaption>Initial design: 3,086 m predicted. Source: report, Fig. 2.1.1.</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/trishul/openrocket-final.jpg" alt="OpenRocket model with measured part masses and the ground-tested motor predicting a 2577 metre apogee" loading="lazy">
+          <figcaption>After fabrication, with real masses and the tested motor: 2,577 m predicted. Source: report, Fig. 2.1.5.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>Motor static tests</h2>
+      <div class="prose">
+        <p>The motor is an L-class solid motor using a sugar-based propellant (the OpenRocket model calls it a dextrose engine). The team tested it twice on a static stand before building the rocket around it. In the second test, careful weighing and casting of the propellant raised the impulse, peak thrust and burn time compared with the first.</p>
+      </div>
+      <table class="data">
+        <thead><tr><th></th><th>Simulated</th><th>Test 1</th><th>Test 2</th></tr></thead>
+        <tbody>
+          <tr><td>Total impulse (N·s)</td><td>4169</td><td>2972</td><td>3775</td></tr>
+          <tr><td>Average thrust (N)</td><td>1480</td><td>1176</td><td>1304</td></tr>
+          <tr><td>Peak thrust (N)</td><td>1550</td><td>1386</td><td>1555</td></tr>
+          <tr><td>Burn time (s)</td><td>2.82</td><td>2.52</td><td>2.89</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Source: report, section 2.1. Test 2 delivered about 91% of the simulated total impulse and matched the simulated peak thrust.</p>
+      <div class="figrow">
+        <figure>
+          <img src="/assets/trishul/static-test-1.jpg" alt="Thrust curve of the first static test, peaking near 1386 newtons over about 2.5 seconds" loading="lazy">
+          <figcaption>Thrust curve, first static test. Source: report, Fig. 2.1.3.</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/trishul/static-test-2.jpg" alt="Thrust curve of the second static test, peaking near 1555 newtons over about 2.9 seconds" loading="lazy">
+          <figcaption>Thrust curve, second static test. Source: report, Fig. 2.1.4.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>Airframe, avionics and recovery</h2>
+      <div class="prose">
+        <ul>
+          <li><strong>Structure:</strong> the body tube, couplers, nose cone and fins are fiberglass and polyester resin, made through repeated trials with different materials and molds. The fins were checked for flutter.</li>
+          <li><strong>Aerodynamics:</strong> the body was sanded smooth, the fin joints were filleted using a laser-cut jig, and the fin edges were chamfered to a diamond wedge profile to reduce drag.</li>
+          <li><strong>Avionics:</strong> a Teensy 4.1 flight computer logged data from a BMP180 barometer and an MPU6050 motion sensor, with GPS, LoRa telemetry and SD card storage. The barometer detects apogee.</li>
+          <li><strong>Recovery:</strong> a dual-parachute system, deployed by an ejection charge through a shock cord.</li>
+          <li><strong>Ground equipment:</strong> a custom launch stand and a launch controller with dual-switch ignition and a continuity check.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="flight">
+      <h2>Flight results</h2>
+      <div class="prose">
+        <p>On 4 January 2025 Trishul flew vertically with a 3,000 m target and reached an apogee of 2,612 m with stable flight. The ejection charge fired at the intended point, the parachute opened, and the rocket landed with only minor structural stress. All the electronics and the flight data were recovered. That is about 87% of the target altitude, and the report describes the project as almost meeting its main goals.</p>
+        <p>Altitude was logged by the onboard BMP180 barometer, so it is a pressure-based estimate, not a tracked GPS altitude. The real flight followed the simulated curve closely: a clean climb, a clear apogee and a steady parachute descent.</p>
+      </div>
+      <figure>
+        <img src="/assets/trishul/flight-altitude.jpg" alt="Altitude against time from the barometer, rising to about 2600 metres then falling steadily under parachute" loading="lazy">
+        <figcaption>Barometric altitude with a moving-average filter. Source: report, Fig. 3.2.1.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>What I would change</h2>
+      <div class="prose">
+        <p>The report’s recommendations are to calibrate the MPU6050 motion sensor in the final flight code, use GPS and LoRa modules for better navigation and communication, and log timestamps with millisecond precision so the flight data is easier to process.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">&copy; 2026 Raju Kumar Sah. All rights reserved.</div>
+  </footer>
+
+  <script src="/js/site.js"></script>
+</body>
+</html>
