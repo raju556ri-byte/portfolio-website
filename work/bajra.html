@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project Bajra: Motor Casing and Graphite Nozzle | Raju Kumar Sah</title>
+<meta name="description" content="My contribution to Project Bajra, my seniors' active-fin controlled rocket: a lightweight glass-fiber solid rocket motor casing and a precision-machined graphite nozzle.">
+<link rel="icon" type="image/png" href="/faviconn.png">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  .small-figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,230px));gap:20px;margin-top:8px}
+  .small-figs figure{margin:0}
+</style>
+</head>
+<body>
+  <canvas id="motion-canvas"></canvas>
+
+  <nav>
+    <div class="wrap">
+      <a href="/" class="logo">RAJU KUMAR SAH<span>.</span></a>
+      <div class="nav-right">
+        <ul class="navlinks">
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/#experience">Experience</a></li>
+          <li><a href="/#writing">Writing</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+        <button class="theme-btn" id="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap page case">
+    <a class="crumb" href="/#projects">← All projects</a>
+    <div class="badge">My contribution to my seniors’ final-year project · 2025</div>
+    <h1>Project Bajra: Motor Casing and Graphite Nozzle</h1>
+    <p class="lede">Bajra is an active fin-controlled rocket built by my seniors as their final-year project. I fabricated its lightweight solid rocket motor, precision-machined the graphite nozzle, prepared the propellant and got the rocket ready on the launch stand, to strict weight and performance limits for flight testing.</p>
+
+    <section>
+      <h2>The project</h2>
+      <div class="prose">
+        <p>Bajra is an integrated control system for stabilizing and guiding a rocket with active fins. A flight computer reads an IMU and GPS and runs a PID controller that moves servo-driven fins. The senior team developed the control system, the flight computer and the fin mechanism. In their tests the rocket followed a 15° pitch command in a wind tunnel with no overshoot, and in a flight test the roll control held the roll angle to about 5° of error.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>My part: the motor casing</h2>
+      <div class="prose">
+        <p>The rocket needed a casing that was light and could take the heat of the burn. I made it from 450 GSM fiberglass composite with polyester resin, laid up on a 32 mm pipe. The pipe was wrapped in printing paper and then cello tape so the cured casing would slide off. The motor dimensions came from OpenMotor simulations.</p>
+      </div>
+      <div class="small-figs">
+        <figure>
+          <img src="/assets/bajra/casing.jpg" alt="The finished glass-fiber composite motor casing, a long grey tube with a hollow core" loading="lazy">
+          <figcaption>The composite motor casing.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>My part: the graphite nozzle</h2>
+      <div class="prose">
+        <p>Choosing the nozzle material took several tries, because the weight limit ruled out heavy materials and the hot exhaust eroded most of the lighter ones. The graphite nozzle was the one chosen for flight tests. It was designed with OpenMotor and nozzle equations, checked in ANSYS, and machined on a lathe. Silicone grease, a flame-resistant lubricant, helped limit erosion.</p>
+      </div>
+      <table class="data">
+        <thead><tr><th>Nozzle tried</th><th>What happened</th></tr></thead>
+        <tbody>
+          <tr><td>PVC bush with M-seal</td><td>Used for early tests with gunpowder propellant</td></tr>
+          <tr><td>Sheet metal</td><td>The flow did not choke properly, so thrust was too low</td></tr>
+          <tr><td>Mud</td><td>Eroded</td></tr>
+          <tr><td>Composite</td><td>Eroded</td></tr>
+          <tr><td>Graphite</td><td>Tested successfully and chosen for flight tests</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Source: senior team’s project report, section 4.4.2.</p>
+      <div class="small-figs">
+        <figure>
+          <img src="/assets/bajra/graphite-nozzle.jpg" alt="The machined graphite nozzle, a dark cylinder with a conical entry and a groove" loading="lazy">
+          <figcaption>The graphite nozzle, machined on a lathe.</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/bajra/composite-nozzle.jpg" alt="A composite nozzle with a frayed, eroded end" loading="lazy">
+          <figcaption>A composite nozzle, which eroded.</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/bajra/bush-nozzle.jpg" alt="Looking into a PVC bush nozzle made with M-seal" loading="lazy">
+          <figcaption>The PVC bush nozzle with M-seal.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>My part: propellant and launch day</h2>
+      <div class="prose">
+        <p>I also prepared the propellant. The grains were cast from a hot potassium nitrate and sugar mixture, stirred in a pan and poured into moulds to make the three grains that load into the casing. On launch day I prepared the rocket on its stand for flight.</p>
+      </div>
+      <div class="small-figs">
+        <figure>
+          <img src="/assets/bajra/propellant-mixing.jpg" alt="Propellant mixture being stirred in a pan next to a yellow and green mould" loading="lazy">
+          <figcaption>Mixing the propellant. Source: senior team’s report, Fig. A.4.</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/bajra/propellant-grains.jpg" alt="Cast propellant grains, each a short cylinder with a hole through the middle" loading="lazy">
+          <figcaption>The cast propellant grains.</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/bajra/launch-prep.jpg" alt="Me preparing the rocket on its launch stand in an open field" loading="lazy">
+          <figcaption>Getting the rocket ready for flight. Fig. A.5.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>Testing and flight</h2>
+      <div class="prose">
+        <p>The senior team tested three propellants, a potassium nitrate and sugar mix (KNSU), black powder and an epoxy-based composite. They chose KNSU for its burn rate, its gentle effect on the composite motor and its ease of preparation. The three-grain motor, with 50 mm grains, 30 mm wide with a 10 mm core, was thrust-tested twice on a stand, and both tests were close to the simulation. In one test the motor sat inside the servo housing to check that the housing would survive the heat, and the housing was undamaged.</p>
+        <p>The rocket then flew twice, once with roll control and once without it. With the control on, the roll angle stayed within about 5° of error, and the recovery system fired and opened the parachute.</p>
+      </div>
+      <div class="small-figs">
+        <figure>
+          <img src="/assets/bajra/thrust-test-1.jpg" alt="Thrust against time for the first static test" loading="lazy">
+          <figcaption>Thrust against time, first static test. Source: senior team’s report, Fig. 5.1.</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/bajra/thrust-test-2.jpg" alt="Thrust against time for the second static test" loading="lazy">
+          <figcaption>Second static test. Fig. 5.2.</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/bajra/motor-after-test.jpg" alt="The composite motor and red servo housing after a static test, the motor end blackened but intact" loading="lazy">
+          <figcaption>The composite motor and servo housing after a static test. Fig. 5.3.</figcaption>
+        </figure>
+      </div>
+      <div class="small-figs" style="margin-top:20px">
+        <figure>
+          <img src="/assets/bajra/flight-stand.jpg" alt="The Bajra rocket on its launch stand in an open field" loading="lazy">
+          <figcaption>The rocket on its launch stand. Fig. 5.12.</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/bajra/in-flight.jpg" alt="The rocket climbing with a smoke trail against a clear sky" loading="lazy">
+          <figcaption>The rocket in flight. Fig. 5.13.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>Credit</h2>
+      <div class="prose">
+        <p>Project Bajra was my seniors’ final-year project, and the photos and test notes on this page come from their project report. The control system, flight computer and fin mechanism are their work. My work is the motor casing, the graphite nozzle, the propellant and the launch preparation.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">&copy; 2026 Raju Kumar Sah. All rights reserved.</div>
+  </footer>
+
+  <script src="/js/site.js"></script>
+</body>
+</html>
