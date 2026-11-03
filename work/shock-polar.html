@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shock Polar Analysis at Mach 6 | Raju Kumar Sah</title>
+<meta name="description" content="A Python shock polar solver and ANSYS CFD of two dual-wedge shock interactions at Mach 6: a regular crossing and a Mach stem.">
+<link rel="icon" type="image/png" href="/faviconn.png">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  .fig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:8px}
+  .fig-grid figure{margin:0}
+</style>
+</head>
+<body>
+  <canvas id="motion-canvas"></canvas>
+
+  <nav>
+    <div class="wrap">
+      <a href="/" class="logo">RAJU KUMAR SAH<span>.</span></a>
+      <div class="nav-right">
+        <ul class="navlinks">
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/#experience">Experience</a></li>
+          <li><a href="/#writing">Writing</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+        <button class="theme-btn" id="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap page case">
+    <a class="crumb" href="/#projects">← All projects</a>
+    <div class="badge">Lab report · Pulchowk Campus · April 2026 · Supervisor: Asst. Prof. Sudip Bhattrai</div>
+    <h1>Shock Polar Analysis at Mach 6</h1>
+    <p class="lede">A Python shock polar solver, checked against ANSYS CFD, for two dual-wedge shock interactions at Mach 6. A 10°/15° pair crosses regularly, and a 35°/35° pair needs a Mach stem.</p>
+
+    <section>
+      <h2>The question</h2>
+      <div class="prose">
+        <p>When two oblique shocks from opposite wedges meet, what happens depends on whether their secondary shock polars intersect. If they do, the shocks cross and refract, leaving a single slip line. If they do not, the flow cannot be matched with oblique shocks alone, and a near-normal Mach stem forms. This matters for inlet design, because the Mach stem costs a lot of total pressure.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Method</h2>
+      <div class="prose">
+        <p>I solved the θ–β–M relation in Python, using a root finder for the weak-shock angle at each wedge deflection. Normal-shock relations then gave the downstream Mach number and pressure ratio. The primary polar comes from sweeping the shock angle from the Mach angle (9.59° at Mach 6) up to 90°. The secondary polars are drawn from the downstream states, centred at (θ<sub>1</sub>, P<sub>2</sub>/P<sub>∞</sub>) and (−θ<sub>2</sub>, P<sub>3</sub>/P<sub>∞</sub>). Both cases use γ = 1.4. The code is in <a class="more" href="https://drive.google.com/drive/folders/15rR1vqa7QPqJnU30dbgO4TyRNLtuhP5q?usp=sharing" target="_blank" rel="noopener">a shared Google Drive folder →</a></p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Results</h2>
+      <table class="data">
+        <thead><tr><th>Case</th><th>Wedge angles</th><th>Shock angle β</th><th>Downstream Mach</th><th>Pressure ratio P/P∞</th><th>Polars intersect?</th></tr></thead>
+        <tbody>
+          <tr><td>Type I (regular)</td><td>10° and 15°</td><td>17.59° and 22.67°</td><td>4.648 and 3.992</td><td>3.668 and 6.074</td><td>Yes</td></tr>
+          <tr><td>Type II (Mach stem)</td><td>35° and 35°</td><td>48.07° on both</td><td>1.877 on both</td><td>23.08 on both</td><td>No</td></tr>
+        </tbody>
+      </table>
+      <div class="prose">
+        <p>In the first case the shocks are weak and the flow stays highly supersonic, so the secondary polars are large and cross. In the second case each 35° shock slows the flow to near Mach 1.9. A flow at that Mach number can only be turned back by about 21°, but each polar would need 35° to reach the centreline, so the secondary polars cannot meet.</p>
+        <p>The transition between the two types comes from the same trade: more deflection makes the primary shock stronger, which shrinks the secondary polar and widens the gap it has to bridge. At Mach 6 and γ = 1.4 the detachment limit is about 42.4°, so 35° is an attached shock that still produces a Mach stem.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Type I: regular interaction</h2>
+      <div class="fig-grid">
+        <figure>
+          <img src="/assets/shock-polar/shock-polar-type1.jpg" alt="Shock polar plot for 10 and 15 degree wedges at Mach 6, with the two secondary polars crossing" loading="lazy">
+          <figcaption>Shock polar. Black is the primary polar, and magenta and cyan are the secondary polars. They cross.</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/shock-polar/cfd-type1-total-pressure.jpg" alt="CFD total pressure contour showing two oblique shocks crossing, refracted shocks and a slip line" loading="lazy">
+          <figcaption>CFD total pressure. Two oblique shocks cross, giving refracted shocks and one slip line.</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/shock-polar/cfd-type1-mach.jpg" alt="CFD Mach number contour for the 10 and 15 degree wedge case" loading="lazy">
+          <figcaption>CFD Mach contour for the regular case.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>Type II: Mach stem</h2>
+      <div class="fig-grid">
+        <figure>
+          <img src="/assets/shock-polar/shock-polar-type2.jpg" alt="Shock polar plot for two 35 degree wedges at Mach 6, with the secondary polars far apart" loading="lazy">
+          <figcaption>Shock polar. The secondary polars are compact and do not meet.</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/shock-polar/cfd-type2-temperature.jpg" alt="CFD static temperature contour with a Mach stem, two triple points, slip lines and refracted shocks" loading="lazy">
+          <figcaption>CFD static temperature. A Mach stem links two triple points, with a subsonic region behind it.</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/shock-polar/cfd-type2-mach.jpg" alt="CFD Mach number contour for the 35 degree wedge case showing the Mach stem" loading="lazy">
+          <figcaption>CFD Mach contour showing the stem.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>What I took from it</h2>
+      <div class="prose">
+        <p>By shock strength, Type II should lose far more total pressure than Type I. The primary shocks are already strong (normal Mach component 4.46), and the near-normal Mach stem adds to the loss. In an inlet, the wedge angles should be chosen to stay in the regular regime.</p>
+        <p>The report is a university lab report supervised by Asst. Prof. Sudip Bhattrai. Related: my <a class="more" href="/work/mach43-intake.html">Mach 4.3 intake design →</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">&copy; 2026 Raju Kumar Sah. All rights reserved.</div>
+  </footer>
+
+  <script src="/js/site.js"></script>
+</body>
+</html>
