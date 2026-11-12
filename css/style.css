@@ -76,6 +76,9 @@
   .card .meta{display:block;color:var(--accent);font-size:.85rem;font-weight:600;margin-bottom:8px}
 
   /* About */
+  .about-wrap{display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap}
+  .about-wrap .about-text{flex:1 1 420px;min-width:0}
+  .portrait{width:220px;height:220px;flex:0 0 auto;border-radius:16px;object-fit:cover;object-position:50% 15%;border:1px solid var(--border)}
   .about-text{max-width:68ch;font-size:1.1rem;color:var(--text)}
   .about-text p{margin:0 0 18px}
 
